@@ -7,7 +7,6 @@ import 'rxjs/add/operator/toPromise';
 import { Common } from '../../scripts/common';
 import { User } from './user.model';
 
-// trying a change owais
 @Injectable()
 export class UserService {
 
