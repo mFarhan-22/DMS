@@ -1,0 +1,38 @@
+<table class="table table-sm table-hover">
+  <thead>
+    <th>Name</th>
+    <th>Login ID</th>
+    <th>User Type</th>
+    <th>Company Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Active</th>
+    <th>&nbsp;</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of userService.userList">
+      <td>{{user.Name}}</td>
+      <td>{{user.LoginUserName}}</td>
+      <td>{{user.UserRole}}</td>
+      <td>{{user.OrganizationName}}</td>
+      <td>{{user.Email}}</td>
+      <td>{{user.PhoneNo}}</td>
+      <td>
+        <label>
+          <input type="checkbox" id="GVIsActive" for="GVIsActive" class="filled-in" [checked]="user.IsActive == 'Y' ? true : false" disabled />
+        </label>
+      </td>
+      <td>
+        <a class="btn" (click)="onEdit(user)">
+            Edit
+          <i class="fa fa-pencil-square-o"></i>
+        </a>
+        <a class="btn text-danger" (click)="onDelete(user.Id)">
+            Delete
+          <i class="fa fa-transh-o"></i>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+

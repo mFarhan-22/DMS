@@ -1,0 +1,58 @@
+<form action="" #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+  <input type="text" id="Id" name="Id" #Id="ngModel" class="hidden" [(ngModel)]="userService.selectedUser.Id">
+  <div class="row">
+    <div class="input-field col s6">
+      <input type="text" class="validate" id="Name" name="Name" #Name="ngModel" [(ngModel)]="userService.selectedUser.Name" required>
+      <label for="Name">User Name</label>
+    </div>
+    <div class="input-field col s6">
+      <input type="text" class="validate" id="LoginUserName" name="LoginUserName" #LoginUserName="ngModel" [(ngModel)]="userService.selectedUser.LoginUserName" required>
+      <label for="LoginUserName">Login User ID</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <input type="password" class="validate" id="Password" name="Password" #Password="ngModel" [(ngModel)]="userService.selectedUser.Password" required>
+      <label for="LoginUserName">Password</label>
+    </div>
+    <div class="input-field col s6">
+      <!-- <input type="text" class="validate" id="UserRoleCode" name="UserRoleCode" #UserRoleCode="ngModel" [(ngModel)]="userService.selectedUser.UserRoleCode" required>
+      <label for="UserRoleCode">User Role</label> -->
+      <select id="UserRoleCode" name="UserRoleCode" [(ngModel)]="userService.selectedUser.UserRoleCode">
+         <option *ngFor="let userType of userTypeService.userTypeListOptions" [value]="userType.Id">{{userType.Name}}</option> 
+      </select>
+      <label for="UserRoleCode">User Role</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <input type="text" class="validate" id="OrganizationCode" name="OrganizationCode" #OrganizationCode="ngModel" [(ngModel)]="userService.selectedUser.OrganizationCode">
+      <label for="OrganizationCode">Company</label>
+    </div>
+    <div class="input-field col s6">
+      <input type="text" class="validate" id="PhoneNo" name="PhoneNo" #PhoneNo="ngModel" [(ngModel)]="userService.selectedUser.PhoneNo">
+      <label for="PhoneNo">Phone # </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <input type="email" class="validate" id="Email" name="Email" #Email="ngModel" [(ngModel)]="userService.selectedUser.Email" email>
+      <label for="email">Email ID</label>
+    </div>
+    <div class="input-field col s6">
+      <label>
+        <input type="checkbox" class="filled-in" id="IsActive" name="IsActive" #IsActive="ngModel" [(ngModel)]="userService.selectedUser.IsActive" [checked]="userService.selectedUser.IsActive == 'N' ? false : true"/>
+        <span>Active</span>
+        {{userService.selectedUser.IsActive}}
+      </label>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <button type="submit" [disabled]="!userForm.valid" class="btn btn-lg btn-block btn-primary">Submit</button>
+    </div>
+    <div class="form-group col-md-4">
+      <button type="button" class="btn btn-lg btn-block btn-primary" (click)="resetForm(userForm)">Reset</button>
+    </div>
+  </div>
+</form>
