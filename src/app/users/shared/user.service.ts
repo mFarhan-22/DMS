@@ -14,7 +14,7 @@ export class UserService {
   userList: User[];
   constructor(private http: Http) {
     this.selectedUser = new User();
-    Common.API_BASE_URL = "http://192.168.1.17:8012";
+    Common.API_BASE_URL = "http://182.184.117.120:8012";
    }
 
    Get(id? : number){

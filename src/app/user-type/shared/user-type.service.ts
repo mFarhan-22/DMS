@@ -16,7 +16,7 @@ export class UserTypeService {
 
   constructor(private http: Http) { 
 
-    Common.API_BASE_URL = "http://192.168.1.17:8012";
+    Common.API_BASE_URL = "http://182.184.117.120:8012";
     this.userTypeSelectOption = new UserType();
     this.userTypeSelectOption.Id = 0;
     this.userTypeSelectOption.Name = "--Select--";

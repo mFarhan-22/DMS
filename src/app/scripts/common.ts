@@ -1,5 +1,5 @@
 
 export class Common {
-    static API_BASE_URL: "http://192.168.1.17:8012";
+    static API_BASE_URL: "http://182.184.117.120:8012";
     //47sdklfjowksd
 }
